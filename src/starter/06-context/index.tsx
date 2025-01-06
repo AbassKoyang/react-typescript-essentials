@@ -10,12 +10,19 @@ function ParentComponent() {
 }
 
 function ChildComponent() {
-  const context = useTheme();
-  console.log(context)
+  const theme = useTheme();
+  console.log(theme)
   return (
     <div>
       <h2>React & Typescript</h2>
-      <h2>Context API</h2>
+      <button className="btn btn-center" onClick={
+        () => {
+          if(theme.theme === 'system') {
+            theme.setTheme('dark');
+            return;
+        }
+        theme.setTheme('system');
+      }}>Toggle</button>
     </div>
   );
 }
